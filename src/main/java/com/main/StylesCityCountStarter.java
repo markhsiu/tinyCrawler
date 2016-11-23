@@ -13,7 +13,7 @@ import com.common.util.IOUtils;
 /**
  * Created by Mark Hsiu on 2016/11/23.
  */
-public class StylesCountStarter {
+public class StylesCityCountStarter {
 
 	private static final String[] MMSize = new String[]{"A","B","C","D","E","F","G","H"} ;
 	private static Map<String,Integer> countMap = new HashMap<>();
@@ -34,10 +34,11 @@ public class StylesCountStarter {
 				if (texts.length > 2) {
 					for (String mm : MMSize) {
 						if(texts[2].toUpperCase().indexOf(mm) > -1){
-							if(countMap.containsKey(mm)){
-								countMap.put(mm, countMap.get(mm)+1);
+							String key = texts[0]+"-"+mm;
+							if(countMap.containsKey(key)){
+								countMap.put(key, countMap.get(key)+1);
 							} else {
-								countMap.put(mm, 1);
+								countMap.put(key, 1);
 							}
 							break;
 						} 
@@ -53,7 +54,7 @@ public class StylesCountStarter {
 		
 		sorted_map.putAll(countMap);
 		System.out.println("== " + (System.currentTimeMillis() - start) + " ms");
-		FileItemIO io = new FileItemIO("styleCount");
+		FileItemIO io = new FileItemIO("styleCityCount");
 		io.open();
 		for ( Entry<String, Integer> entry: sorted_map.entrySet()) {
 			io.write(entry.getKey() + " " + entry.getValue());

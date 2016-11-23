@@ -53,7 +53,7 @@ public class CountWordStarter {
 			io.write(entry.getKey() + " " + entry.getValue());
 		}
 		io.close();
-		System.out.println("== " + (System.currentTimeMillis() - start) + " ms");
+
 		System.out.println("end " + (System.currentTimeMillis() - start) + " ms");
 	}
 
