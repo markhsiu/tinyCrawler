@@ -1,0 +1,2 @@
+maven :
+mvn install:install-file -Dfile=jar包的位置 -DgroupId=com.ckfinder -DartifactId=apache-ant-zip -Dversion=2.3 -Dpackaging=jar
